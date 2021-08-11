@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "husky install",
-    "test": "jest"
+    "test": "jest --no-coverage",
+    "test:staged": "jest --no-coverage"
   },
   "lint-staged": {
     "*.ts": [
-      "eslint src/**/*.ts --fix"
+      "eslint src/**/*.ts --fix",
+      "npm run test:staged"
     ]
   },
   "keywords": [],
@@ -33,6 +35,7 @@
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.2",
     "ts-jest": "^27.0.4",
+    "ts-node": "^10.2.0",
     "typescript": "^4.3.5"
   }
 }
