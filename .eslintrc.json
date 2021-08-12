@@ -21,6 +21,7 @@
       "prettier"
   ],
   "rules": {
+      "@typescript-eslint/no-explicit-any": "off",
       "consistent-return": "off",
       "no-empty": 0,
       "quotes": ["error", "single", {"allowTemplateLiterals": true}],
