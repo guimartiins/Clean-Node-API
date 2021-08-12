@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "husky install",
-    "test": "jest --no-coverage",
-    "test:staged": "jest --no-coverage"
+    "test": "jest --no-coverage --watch",
+    "test:staged": "jest --no-coverage --passWithNoTests"
   },
   "lint-staged": {
     "*.ts": [
