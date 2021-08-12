@@ -21,6 +21,7 @@
       "prettier"
   ],
   "rules": {
+      "no-restricted-syntax": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "consistent-return": "off",
       "no-empty": 0,
