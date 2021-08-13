@@ -1,12 +1,16 @@
 // eslint-disable-next-line max-classes-per-file
-import { IAccountModel } from '../../domain/models/account';
 import {
+    InvalidParamError,
+    MissingParamError,
+    ServerError,
+} from '../../errors';
+import { SignUpController } from './signup';
+import {
+    IEmailValidator,
     IAddAccount,
     IAddAccountModel,
-} from '../../domain/usecases/add-account';
-import { InvalidParamError, MissingParamError, ServerError } from '../errors';
-import { IEmailValidator } from '../protocols';
-import { SignUpController } from './signup';
+    IAccountModel,
+} from './signup-protocols';
 
 interface ISutTypes {
     sut: SignUpController;
