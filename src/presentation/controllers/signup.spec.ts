@@ -1,5 +1,7 @@
+// eslint-disable-next-line max-classes-per-file
 import { InvalidParamError } from '../errors/invalid-param-error';
 import { MissingParamError } from '../errors/missing-param-error';
+import { ServerError } from '../errors/server-error';
 import { IEmailValidator } from '../protocols/email-validator';
 import { SignUpController } from './signup';
 
@@ -108,5 +110,27 @@ describe('SignUp Controller', () => {
         };
         sut.handle(httpRequest);
         expect(isValidSpy).toHaveBeenCalledWith('any_email@email.com');
+    });
+
+    test('should return 500 if an EmailValidator throws', () => {
+        class EmailValidatorStub implements IEmailValidator {
+            isValid(email: string): boolean {
+                throw new Error();
+            }
+        }
+        const emailValidatorStub = new EmailValidatorStub();
+        const sut = new SignUpController(emailValidatorStub);
+
+        const httpRequest = {
+            body: {
+                name: 'any_name',
+                email: 'any_email@email.com',
+                password: 'password',
+                passwordConfirmation: 'passwordConfirmation',
+            },
+        };
+        const httpResponse = sut.handle(httpRequest);
+        expect(httpResponse.statusCode).toBe(500);
+        expect(httpResponse.body).toEqual(new ServerError());
     });
 });
