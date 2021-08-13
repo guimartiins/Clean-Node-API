@@ -10,3 +10,8 @@ export const serverError = (): IResponse => ({
     statusCode: 500,
     body: new ServerError(),
 });
+
+export const ok = (data: any): IResponse => ({
+    statusCode: 200,
+    body: data,
+});
