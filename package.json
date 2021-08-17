@@ -9,13 +9,13 @@
     "test: verbose": "jest --no-coverage --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
-    "test:staged": "npm test -- ",
+    "test:staged": "npm test -- --watch",
     "test:ci": "npm test -- --coverage"
   },
   "lint-staged": {
     "*.ts": [
       "eslint src/**/*.ts --fix",
-      "npm run test:staged"
+      "npm run test"
     ]
   },
   "keywords": [],
