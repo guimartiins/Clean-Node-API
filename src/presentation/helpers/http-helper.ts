@@ -1,4 +1,5 @@
-import { ServerError } from '../errors/server-error';
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import { ServerError } from '../errors';
 import { IResponse } from '../protocols/http';
 
 export const badRequest = (error: Error): IResponse => ({
