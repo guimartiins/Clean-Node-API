@@ -21,17 +21,10 @@ export class DbAddAccount implements IAddAccount {
             accountData.password
         );
 
-        await this.addAccountRepository.add({
+        const account = await this.addAccountRepository.add({
             ...accountData,
             password: hashedPassword,
         });
-        return new Promise((resolve) =>
-            resolve({
-                id: 'id',
-                name: 'name',
-                email: 'email',
-                password: 'password',
-            })
-        );
+        return account;
     }
 }
