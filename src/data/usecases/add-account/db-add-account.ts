@@ -21,7 +21,7 @@ export class DbAddAccount implements IAddAccount {
             accountData.password
         );
 
-        this.addAccountRepository.add({
+        await this.addAccountRepository.add({
             ...accountData,
             password: hashedPassword,
         });
