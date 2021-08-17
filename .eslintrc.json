@@ -21,6 +21,7 @@
       "prettier"
   ],
   "rules": {
+      "max-classes-per-file": "off",
       "no-restricted-syntax": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "consistent-return": "off",
