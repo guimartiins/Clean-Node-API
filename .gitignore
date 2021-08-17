@@ -1,3 +1,4 @@
-.git 
+.git
 node_modules
 dist
+coverage
