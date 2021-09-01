@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { MongoClient, Collection } from 'mongodb';
 
 export const MongoHelper = {
@@ -16,5 +17,10 @@ export const MongoHelper = {
 
     getCollection(name: string): Collection {
         return this.client.db().collection(name);
+    },
+
+    map(collection: any): any {
+        const { _id, ...collectionWithoutId } = collection as any;
+        return { ...collectionWithoutId, id: _id };
     },
 };
