@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "husky install",
     "test": "jest --no-coverage --passWithNoTests --silent --noStackTrace --runInBand",
-    "test: verbose": "jest --no-coverage --passWithNoTests --runInBand",
+    "test:verbose": "jest --no-coverage --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
     "test:staged": "npm test -- --watch",
