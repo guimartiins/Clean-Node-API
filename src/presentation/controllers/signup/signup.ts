@@ -46,9 +46,8 @@ export class SignUpController implements IController {
                 password,
             });
             return ok(account);
-        } catch (e) {
-            console.error(e);
-            return serverError();
+        } catch (error) {
+            return serverError(error);
         }
     }
 }
