@@ -1,3 +1,3 @@
 export interface IAuthentication {
-    auth(email: string, password: string): Promise<string>;
+    auth(email: string, password: string): Promise<string | null>;
 }
