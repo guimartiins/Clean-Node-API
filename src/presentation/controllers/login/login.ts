@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { InvalidParamError, MissingParamError } from '../../errors';
-import { badRequest, serverError, unauthorized } from '../../helpers/http-helper';
+import { badRequest, serverError, unauthorized, ok } from '../../helpers/http-helper';
 import { IEmailValidator, IAuthentication, IRequest, IResponse, IController } from './login-protocols';
 
 export class LoginController implements IController {
@@ -27,10 +27,7 @@ export class LoginController implements IController {
             if (!accessToken) {
                 return unauthorized();
             }
-            return {
-                statusCode: 200,
-                body: {},
-            };
+            return ok({ accessToken })
         } catch (error) {
             return serverError(error)
         }
