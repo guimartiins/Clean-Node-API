@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import { InvalidParamError } from '../../errors/invalid-param-error';
 import { MissingParamError } from '../../errors/missing-param-error';
 import { badRequest } from '../../helpers/http-helper';
 import { IRequest, IResponse } from '../../protocols';
@@ -16,6 +17,9 @@ export class LoginController implements IController {
         }
         const isValid = this.emailValidator.isValid(httpRequest.body.email);
 
+        if (!isValid) {
+            return badRequest(new InvalidParamError('email'))
+        }
         return {
             statusCode: 200,
             body: {},
