@@ -1,11 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { IAuthentication } from '../../../domain/usecases/authentication';
-import { InvalidParamError } from '../../errors/invalid-param-error';
-import { MissingParamError } from '../../errors/missing-param-error';
+import { InvalidParamError, MissingParamError } from '../../errors';
 import { badRequest, serverError, unauthorized } from '../../helpers/http-helper';
-import { IRequest, IResponse } from '../../protocols';
-import { IController } from '../../protocols/controller';
-import { IEmailValidator } from '../../protocols/email-validator';
+import { IEmailValidator, IAuthentication, IRequest, IResponse, IController } from './login-protocols';
 
 export class LoginController implements IController {
     constructor(private emailValidator: IEmailValidator, private authentication: IAuthentication) { }
