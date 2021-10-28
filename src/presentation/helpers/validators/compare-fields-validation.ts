@@ -10,7 +10,7 @@ export class CompareFieldsValidation implements IValidation {
         this.fieldToCompareName = fieldToCompareName;
     }
     validate(input: any): Error | undefined {
-        if (!input[this.fieldName] !== input[this.fieldToCompareName]) {
+        if (input[this.fieldName] !== input[this.fieldToCompareName]) {
             return new InvalidParamError(this.fieldToCompareName);
         }
     }

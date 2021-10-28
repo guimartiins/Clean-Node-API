@@ -6,7 +6,7 @@
   "scripts": {
     "start": "sucrase-node src/main/server.ts",
     "postinstall": "husky install",
-    "test": "jest --no-coverage --passWithNoTests --silent --noStackTrace --runInBand",
+    "test": "jest --no-coverage --passWithNoTests --runInBand",
     "test:verbose": "jest --no-coverage --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:integration": "npm test -- --watch --config jest-integration-config.js",
