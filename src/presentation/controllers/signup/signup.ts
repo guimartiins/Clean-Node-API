@@ -24,8 +24,10 @@ export class SignUpController implements IController {
     }
     async handle(httpRequest: IRequest): Promise<IResponse> {
         try {
-            this.validation.validate(httpRequest.body);
-
+            const error = this.validation.validate(httpRequest.body);
+            if (error) {
+                return badRequest(error);
+            }
             const requiredFields = [
                 'name',
                 'email',
