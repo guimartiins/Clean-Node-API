@@ -6,17 +6,26 @@ import {
     IResponse,
     IEmailValidator,
     IAddAccount,
+    IValidation,
 } from './signup-protocols';
 
 export class SignUpController implements IController {
     private readonly emailValidator: IEmailValidator;
     private readonly addAccount: IAddAccount;
-    constructor(emailValidator: IEmailValidator, addAccount: IAddAccount) {
+    private readonly validation: IValidation;
+    constructor(
+        emailValidator: IEmailValidator,
+        addAccount: IAddAccount,
+        validation: IValidation
+    ) {
         this.emailValidator = emailValidator;
         this.addAccount = addAccount;
+        this.validation = validation;
     }
     async handle(httpRequest: IRequest): Promise<IResponse> {
         try {
+            this.validation.validate(httpRequest.body);
+
             const requiredFields = [
                 'name',
                 'email',
