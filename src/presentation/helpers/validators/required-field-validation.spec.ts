@@ -12,7 +12,7 @@ describe('Required Field Validation', () => {
         expect(error).toEqual(new MissingParamError('field'));
     });
     test('should not return if validation succeeds', () => {
-        const sut = new RequiredFieldValidation('field');
+        const sut = makeSut();
         const error = sut.validate({ field: 'any_name' });
         expect(error).toBeFalsy();
     });
