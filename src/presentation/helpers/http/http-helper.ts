@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { ServerError, UnauthorizedError } from '../errors';
-import { IResponse } from '../protocols/http';
+import { ServerError, UnauthorizedError } from '../../errors';
+import { IResponse } from '../../protocols/http';
 
 export const badRequest = (error: Error): IResponse => ({
     statusCode: 400,

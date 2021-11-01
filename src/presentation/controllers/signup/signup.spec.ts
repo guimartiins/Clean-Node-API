@@ -1,5 +1,5 @@
 import { MissingParamError, ServerError } from '../../errors';
-import { ok, serverError, badRequest } from '../../helpers/http-helper';
+import { ok, serverError, badRequest } from '../../helpers/http/http-helper';
 import { IRequest } from '../../protocols/http';
 // eslint-disable-next-line max-classes-per-file
 import { SignUpController } from './signup';
