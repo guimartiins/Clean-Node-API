@@ -9,6 +9,7 @@ export class DbAuthentication implements IAuthentication {
     constructor(
         private readonly loadAccountByEmailRepository: ILoadAccountByEmailRepository
     ) { }
+
     async auth(authentication: IAuthenticationModel): Promise<string | null> {
         await this.loadAccountByEmailRepository.load(authentication.email);
         return null;
