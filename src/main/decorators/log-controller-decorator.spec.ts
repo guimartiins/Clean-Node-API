@@ -1,9 +1,9 @@
-import { ILogErrorRepository } from '../../data/protocols/db/log-error-repository';
+import { ILogErrorRepository } from '../../data/protocols/db/log/log-error-repository';
 import { IAccountModel } from '../../domain/models/account';
 import { serverError, ok } from '../../presentation/helpers/http/http-helper';
 import { IRequest, IResponse } from '../../presentation/protocols';
 import { IController } from '../../presentation/protocols/controller';
-import { LogControllerDecorator } from './log';
+import { LogControllerDecorator } from './log-controller-decorator';
 
 interface ISutTypes {
     sut: LogControllerDecorator;

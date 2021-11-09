@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { badRequest, serverError, unauthorized, ok } from '../../helpers/http/http-helper';
-import { IAuthentication, IRequest, IResponse, IController, IValidation } from './login-protocols';
+import { IAuthentication, IRequest, IResponse, IController, IValidation } from './login-controller-protocols';
 
 export class LoginController implements IController {
     constructor(private readonly authentication: IAuthentication, private readonly validation: IValidation) { }

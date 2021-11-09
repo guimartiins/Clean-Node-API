@@ -6,8 +6,12 @@ import {
     unauthorized,
     ok,
 } from '../../helpers/http/http-helper';
-import { LoginController } from './login';
-import { IRequest, IAuthentication, IValidation } from './login-protocols';
+import { LoginController } from './login-controller';
+import {
+    IRequest,
+    IAuthentication,
+    IValidation,
+} from './login-controller-protocols';
 
 const makeAuthentication = (): IAuthentication => {
     class AuthenticationStub implements IAuthentication {
