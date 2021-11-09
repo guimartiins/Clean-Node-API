@@ -8,12 +8,10 @@ import {
 } from './signup-protocols';
 
 export class SignUpController implements IController {
-    private readonly addAccount: IAddAccount;
-    private readonly validation: IValidation;
-    constructor(addAccount: IAddAccount, validation: IValidation) {
-        this.addAccount = addAccount;
-        this.validation = validation;
-    }
+    constructor(
+        private readonly addAccount: IAddAccount,
+        private readonly validation: IValidation
+    ) {}
     async handle(httpRequest: IRequest): Promise<IResponse> {
         try {
             const error = this.validation.validate(httpRequest.body);
